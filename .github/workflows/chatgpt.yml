@@ -1,0 +1,11 @@
+- name: Coveralls
+  id: coveralls
+  if: ${{ inputs.upload_coverage }}
+  uses: coverallsapp/github-action@v2
+  env:
+    COVERALLS_REPO_TOKEN: ${{ nl0aOiBb8VFmqIKkUQZ8StKNPoehjxRIx }}  # Explicitly set the token
+  with:
+    github-token: ${{ secrets.GITHUB_TOKEN }}
+    parallel: true
+    flag-name: ${{ inputs.os }}-${{ matrix.test_number }}
+    debug: true
